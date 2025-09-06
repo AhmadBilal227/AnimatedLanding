@@ -10,13 +10,14 @@ export default function AnimatedHeroSection() {
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="grid md:grid-cols-5 gap-8 items-center">
         <motion.div
+          className="md:col-span-3"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-5xl md:text-6xl font-sans font-bold leading-tight text-gray-900">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold leading-tight text-gray-900 break-words">
             <SplitText
               text="Your hunt for a creative partner is "
               className="text-5xl md:text-6xl font-sans font-bold leading-tight text-gray-900"
@@ -46,7 +47,7 @@ export default function AnimatedHeroSection() {
         </motion.div>
         
         <motion.div 
-          className="flex items-start gap-4"
+          className="flex items-start gap-4 md:col-span-2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
