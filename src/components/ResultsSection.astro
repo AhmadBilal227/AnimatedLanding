@@ -1,0 +1,43 @@
+---
+import AnimatedMetricCard from './AnimatedMetricCard';
+
+const metrics = [
+  {
+    value: '400%',
+    description: 'increase in content production per month',
+    client: 'OFCOLOR',
+    color: 'border-l-brand-green'
+  },
+  {
+    value: '200+',
+    description: 'brand artifacts created in 2 weeks',
+    client: 'ATELIO',
+    color: 'border-l-brand-purple'
+  },
+  {
+    value: '76%',
+    description: 'increase in organic search traffic',
+    client: 'THE ART STUDENTS LEAGUE',
+    color: 'border-l-brand-yellow'
+  },
+  {
+    value: '150%',
+    description: 'growth in user engagement',
+    client: 'ANOTHER CLIENT',
+    color: 'border-l-brand-pink'
+  },
+];
+---
+
+<section class="container mx-auto px-4 py-16 md:py-24">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-sans font-bold leading-tight text-gray-900">We transform brands and experiences to help our partners raise funding, grow revenue, and capture new customers.</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:gap-6">
+      {metrics.map((metric, index) => (
+        <AnimatedMetricCard metric={metric} index={index} client:load />
+      ))}
+    </div>
+  </div>
+</section>

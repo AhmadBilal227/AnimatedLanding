@@ -1,0 +1,31 @@
+---
+import portfolio from '../data/portfolio.json';
+import AnimatedCaseStudyCard from './AnimatedCaseStudyCard';
+
+const caseStudies = [
+  { project: { ...portfolio.images.find(p => p.id === 1), type: 'image' }, color: 'border-brand-green' },
+  { project: { ...portfolio.videos.find(p => p.id === 1), type: 'video' }, color: 'border-brand-blue' },
+  { project: { ...portfolio.audio.find(p => p.id === 1), type: 'audio', award: 'Best Short Film Score' }, color: 'border-brand-purple' },
+  { project: { ...portfolio.images.find(p => p.id === 2), type: 'image' }, color: 'border-brand-yellow' },
+].filter(cs => cs.project);
+---
+
+<section class="py-8 md:py-12">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="w-16 h-px bg-gray-300"></div>
+            <h2 class="text-3xl font-sans font-bold uppercase tracking-wider">Case Studies</h2>
+            <div class="w-16 h-px bg-gray-300"></div>
+        </div>
+        <p class="text-5xl md:text-6xl font-serif font-bold text-gray-900">Need Proof?</p>
+        <p class="text-lg text-gray-500 mt-2">Take a look at our featured work.</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto items-center justify-items-center">
+      {caseStudies.map(({ project, color }, index) => (
+        <AnimatedCaseStudyCard project={project} color={color} index={index} client:only="react" />
+      ))}
+    </div>
+  </div>
+</section>

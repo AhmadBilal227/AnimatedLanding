@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import portfolio from '../data/portfolio.json';
+
+const allProjects = [
+  ...portfolio.images.map(project => ({ type: 'image', project })),
+  ...portfolio.videos.map(project => ({ type: 'video', project })),
+  ...portfolio.audio.map(project => ({ type: 'audio', project })),
+];
+---
+
+<MainLayout title="Work | A Creative Portfolio">
+  <section class="text-center my-16">
+    <h1 class="text-5xl font-serif font-bold">All Work</h1>
+    <p class="text-lg text-gray-500 mt-2">A complete collection of my projects.</p>
+  </section>
+
+  <section>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {allProjects.map(({ project, type }) => (
+        <ProjectCard {project} {type} />
+      ))}
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,44 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import portfolio from '../data/portfolio.json';
+const { accolades } = portfolio;
+---
+
+<MainLayout title="About | A Creative Portfolio">
+  <section class="text-center my-16">
+    <h1 class="text-6xl font-serif font-bold">About Me</h1>
+    <p class="text-xl text-gray-500 mt-2">My journey, my passion, and my accolades.</p>
+  </section>
+
+  <section class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+    <div class="md:col-span-1">
+        <img src="https://picsum.photos/seed/profile/400/400" alt="Your Name" class="w-full h-auto rounded-lg shadow-lg" />
+    </div>
+    <div class="md:col-span-2">
+        <h2 class="text-3xl font-serif font-bold mb-4">My Story</h2>
+        <div class="text-lg text-gray-700 space-y-4">
+            <p>
+                Hello! I'm a passionate creative with a love for capturing moments through photography and crafting immersive soundscapes. My journey began over a decade ago, and since then, I've been dedicated to honing my craft and exploring the intersection of visual and auditory art.
+            </p>
+            <p>
+                This portfolio is a curated collection of my favorite projects. I hope you enjoy exploring my work as much as I enjoyed creating it.
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto mt-24">
+    <h2 class="text-4xl font-serif font-bold mb-8 text-center">Awards & Recognitions</h2>
+    <div class="border-t border-gray-200">
+      {accolades.map(accolade => (
+        <div class="border-b border-gray-200 py-6 flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-xl">{accolade.title}</h3>
+            <p class="text-md text-gray-500">{accolade.organization}</p>
+          </div>
+          <span class="text-xl font-bold text-gray-800">{accolade.year}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</MainLayout>

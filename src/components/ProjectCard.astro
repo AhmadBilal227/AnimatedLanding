@@ -1,0 +1,39 @@
+---
+const { project, type } = Astro.props;
+const projectUrl = project.caseStudy ? `/portfolio/${type}-${project.id}` : '#';
+const imageUrl = type === 'image' ? project.imageUrl : project.heroImage || `https://picsum.photos/seed/${type}${project.id}/800/600`;
+---
+
+<a href={projectUrl} class="project-card group block bg-gray-100 overflow-hidden">
+  <div class="aspect-[4/3] overflow-hidden">
+    <img 
+      src={imageUrl}
+      alt={project.title} 
+      class="project-card-image w-full h-full object-cover"
+    />
+  </div>
+  <div class="p-4">
+    <h3 class="project-card-title text-xl font-serif font-bold">{project.title}</h3>
+    <p class="text-gray-500">{project.category || (type.charAt(0).toUpperCase() + type.slice(1))}</p>
+  </div>
+</a>
+
+<script>
+    import { gsap } from 'gsap';
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const image = card.querySelector('.project-card-image');
+        const title = card.querySelector('.project-card-title');
+
+        const tl = gsap.timeline({ paused: true });
+
+        tl.to(image, { 
+            scale: 1.05,
+            duration: 0.5,
+            ease: 'power3.inOut'
+        });
+
+        card.addEventListener('mouseenter', () => tl.play());
+        card.addEventListener('mouseleave', () => tl.reverse());
+    });
+</script>

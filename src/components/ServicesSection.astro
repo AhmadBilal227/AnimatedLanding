@@ -1,0 +1,23 @@
+---
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+---
+
+<section class="container mx-auto px-4 py-16 text-center">
+  <Badge 
+    variant="secondary" 
+    className="bg-gray-100 hover:bg-gray-200 rounded-full px-6 py-3 mb-8 text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+  >
+    Making Good Trouble Since 2020
+  </Badge>
+  
+  <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 font-sans font-bold text-md md:text-lg text-gray-500 max-w-4xl mx-auto">
+    <span class="hover:text-brand-purple transition-colors cursor-default">BRANDING</span>
+    <Separator orientation="vertical" className="h-6 bg-gray-300" />
+    <span class="hover:text-brand-purple transition-colors cursor-default">EXPERIENCE DESIGN</span>
+    <Separator orientation="vertical" className="h-6 bg-gray-300" />
+    <span class="hover:text-brand-purple transition-colors cursor-default">CONTENT CREATION</span>
+    <Separator orientation="vertical" className="h-6 bg-gray-300" />
+    <span class="hover:text-brand-purple transition-colors cursor-default">COLLATERAL DESIGN</span>
+  </div>
+</section>

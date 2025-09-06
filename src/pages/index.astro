@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import FluidGlassPortfolio from '../components/FluidGlassPortfolio';
+import ResultsSection from '../components/ResultsSection.astro';
+import CaseStudiesSection from '../components/CaseStudiesSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+---
+
+<MainLayout title="Greater | Creative Partner">
+  <HeroSection />
+  <ServicesSection />
+  <FluidGlassPortfolio client:load />
+  <ResultsSection />
+  <CaseStudiesSection />
+  <TestimonialsSection />
+  
+  <!-- Other sections will be added here -->
+
+</MainLayout>

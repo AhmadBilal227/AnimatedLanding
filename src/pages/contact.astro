@@ -1,0 +1,66 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+---
+
+<MainLayout title="Contact | A Creative Portfolio">
+  <section class="text-center my-16">
+    <h1 class="text-6xl font-serif font-bold">Contact</h1>
+    <p class="text-xl text-gray-500 mt-2">Let's create something great together.</p>
+  </section>
+
+  <section class="max-w-2xl mx-auto">
+    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+      <CardContent className="p-8">
+        <form class="space-y-8">
+          <div class="space-y-2">
+            <label for="name" class="block text-lg font-medium">Your Name</label>
+            <Input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              className="text-lg py-3 focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="email" class="block text-lg font-medium">Your Email</label>
+            <Input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              className="text-lg py-3 focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
+              placeholder="your.email@example.com"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="message" class="block text-lg font-medium">Message</label>
+            <Textarea 
+              id="message" 
+              name="message" 
+              rows={6} 
+              required 
+              className="text-lg focus:ring-brand-purple focus:border-brand-purple transition-all duration-300 resize-none"
+              placeholder="Tell us about your project..."
+            />
+          </div>
+          <div class="text-center pt-4">
+            <Button 
+              type="submit" 
+              className="bg-black hover:bg-brand-purple text-white font-bold py-4 px-10 text-lg transition-all duration-300 hover:scale-105"
+              size="lg"
+            >
+              Send Message
+            </Button>
+            <p class="text-xs text-gray-500 text-center mt-4">Note: This is a demo form. Submissions are not currently active.</p>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
+  </section>
+</MainLayout>

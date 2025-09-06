@@ -1,0 +1,1 @@
+import{g as o}from"./hoisted.DLuW_hWa.js";document.querySelectorAll(".project-card").forEach(e=>{const r=e.querySelector(".project-card-image");e.querySelector(".project-card-title");const t=o.timeline({paused:!0});t.to(r,{scale:1.05,duration:.5,ease:"power3.inOut"}),e.addEventListener("mouseenter",()=>t.play()),e.addEventListener("mouseleave",()=>t.reverse())});

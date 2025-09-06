@@ -1,0 +1,82 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import portfolio from '../../data/portfolio.json';
+import VideoPlayer from '../../components/VideoPlayer.astro';
+import AudioPlayer from '../../components/AudioPlayer.jsx';
+
+export async function getStaticPaths() {
+  const allItems = [...portfolio.images, ...portfolio.audio, ...portfolio.videos];
+  const caseStudyItems = allItems.filter(item => item.caseStudy);
+
+  return caseStudyItems.map(item => {
+    const type = portfolio.images.includes(item) ? 'image' : portfolio.audio.includes(item) ? 'audio' : 'video';
+    return {
+      params: { slug: `${type}-${item.id}` },
+      props: { item, type },
+    };
+  });
+}
+
+const { item, type } = Astro.props;
+const { title, caseStudy } = item;
+---
+
+<MainLayout title={`Case Study: ${title}`}>
+  <section class="max-w-4xl mx-auto">
+    <div class="text-center my-16">
+      <h1 class="text-6xl font-serif font-bold">{title}</h1>
+      <p class="text-xl text-gray-500 mt-2">{item.category || (type.charAt(0).toUpperCase() + type.slice(1))}</p>
+    </div>
+
+    <div class="mb-16 overflow-hidden rounded-lg shadow-lg">
+        {type === 'image' && <img src={item.imageUrl} alt={title} class="w-full h-auto object-cover parallax-image"/>}
+        {type === 'video' && <VideoPlayer youtubeId={item.youtubeId} title={item.title} />}
+        {type === 'audio' && <AudioPlayer client:load track={item} />}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="md:col-span-2">
+            <h2 class="text-3xl font-serif font-bold mb-4">The Process</h2>
+            <p class="text-lg text-gray-700 whitespace-pre-line">{caseStudy.process}</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-serif font-bold mb-4">Objective</h3>
+            <p class="text-gray-700 mb-6">{caseStudy.objective}</p>
+
+            <h3 class="text-2xl font-serif font-bold mb-4">Client</h3>
+            <p class="text-gray-700 mb-6">{caseStudy.client}</p>
+
+            <h3 class="text-2xl font-serif font-bold mb-4">Tools Used</h3>
+            <ul class="flex flex-wrap gap-2">
+              {caseStudy.tools.map(tool => (
+                <li class="bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
+                  {tool}
+                </li>
+              ))}
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-center mt-24">
+        <a href="/work" class="text-gray-600 hover:text-black transition-colors font-bold">&larr; Back to All Work</a>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".parallax-image", {
+        y: "-20%",
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".parallax-image",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+        },
+    });
+</script>

@@ -1,0 +1,27 @@
+import React from 'react';
+import BlobCursor from './BlobCursor';
+
+const BlobCursorWrapper: React.FC = () => {
+  return (
+    <BlobCursor
+      blobType="circle"
+      fillColor="#5227FF"
+      trailCount={3}
+      sizes={[30, 60, 40]}
+      innerSizes={[10, 20, 13]}
+      innerColor="rgba(255,255,255,0.8)"
+      opacities={[0.6, 0.6, 0.6]}
+      shadowColor="rgba(0,0,0,0.75)"
+      shadowBlur={5}
+      shadowOffsetX={10}
+      shadowOffsetY={10}
+      filterStdDeviation={30}
+      useFilter={true}
+      fastDuration={0.1}
+      slowDuration={0.5}
+      zIndex={100}
+    />
+  );
+};
+
+export default BlobCursorWrapper;

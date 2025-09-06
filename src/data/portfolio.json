@@ -1,0 +1,98 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "title": "Abstract Forms",
+      "category": "Digital Art",
+      "imageUrl": "https://picsum.photos/seed/image01/800/600",
+      "thumbnailUrl": "https://picsum.photos/seed/image01/400/300",
+      "caseStudy": {
+        "client": "Personal Project",
+        "objective": "To explore the relationship between color and shape in a digital medium.",
+        "process": "This piece was created using a combination of generative algorithms and manual refinement. The initial forms were generated in Processing, then imported into Photoshop for color grading and texture work. The goal was to create a sense of organic movement from purely digital inputs.",
+        "tools": ["Processing", "Adobe Photoshop"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "City at Night",
+      "category": "Photography",
+      "imageUrl": "https://picsum.photos/seed/image02/800/600",
+      "thumbnailUrl": "https://picsum.photos/seed/image02/400/300"
+    },
+    {
+      "id": 3,
+      "title": "Mountain Landscape",
+      "category": "Photography",
+      "imageUrl": "https://picsum.photos/seed/image03/800/600",
+      "thumbnailUrl": "https://picsum.photos/seed/image03/400/300"
+    },
+    {
+      "id": 4,
+      "title": "Coastal Waves",
+      "category": "Photography",
+      "imageUrl": "https://picsum.photos/seed/image04/800/600",
+      "thumbnailUrl": "https://picsum.photos/seed/image04/400/300"
+    }
+  ],
+  "audio": [
+    {
+      "id": 1,
+      "title": "Ambient Dreams",
+      "description": "A relaxing ambient track.",
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "caseStudy": {
+        "client": "Meditation App",
+        "objective": "To create a calming soundscape for a guided meditation feature.",
+        "process": "The track was built around a simple piano melody, layered with atmospheric pads created in Ableton Live's Wavetable synth. Field recordings of rain and wind were subtly mixed in to add natural texture. The final mix was mastered to have a wide dynamic range, ensuring a non-fatiguing listening experience.",
+        "tools": ["Ableton Live", "Kontakt", "Field Recorder"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Uptempo Groove",
+      "description": "An energetic electronic beat.",
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Kinetic Typography",
+      "description": "An animated typography project.",
+      "youtubeId": "n_pC21a1t1s",
+      "caseStudy": {
+        "client": "Tech Conference Opener",
+        "objective": "To create a high-energy opening sequence that introduces the conference themes.",
+        "process": "The animation was designed in Adobe After Effects. The core concept was to have the words themselves animate in a way that reflected their meaning. The timing was synchronized to a custom-composed electronic music track. The final render was color-graded in DaVinci Resolve to match the event's branding.",
+        "tools": ["Adobe After Effects", "Adobe Illustrator", "DaVinci Resolve"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Short Film: The Wait",
+      "description": "A short film about anticipation.",
+      "youtubeId": "5Q9_p62gD2E"
+    }
+  ],
+  "accolades": [
+    {
+      "id": 1,
+      "title": "Photographer of the Year",
+      "organization": "Creative Weekly",
+      "year": 2023
+    },
+    {
+      "id": 2,
+      "title": "Best Short Film Score",
+      "organization": "Indie Film Fest",
+      "year": 2022
+    },
+    {
+      "id": 3,
+      "title": "Featured Artist",
+      "organization": "Design Magazine",
+      "year": 2021
+    }
+  ]
+}

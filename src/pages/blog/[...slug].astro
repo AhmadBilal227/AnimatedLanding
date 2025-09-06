@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map(post => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<MainLayout title={post.data.title}>
+	<article class="max-w-3xl mx-auto">
+		<div class="text-center my-16">
+			<h1 class="text-6xl font-serif font-bold mb-4">{post.data.title}</h1>
+			<p class="text-lg text-gray-500">Published on {new Date(post.data.pubDate).toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+		</div>
+
+		{post.data.heroImage && <img src={post.data.heroImage} alt="" class="w-full h-auto rounded-lg mb-16 shadow-lg"/>}
+
+		<div class="prose prose-lg max-w-none">
+			<Content />
+		</div>
+
+        <div class="text-center mt-24">
+            <a href="/blog" class="text-gray-600 hover:text-black transition-colors font-bold">&larr; Back to Blog</a>
+        </div>
+	</article>
+</MainLayout>
+
+<style is:global>
+    .prose {
+        --tw-prose-body: theme(colors.gray.700);
+        --tw-prose-headings: theme(colors.black);
+        --tw-prose-lead: theme(colors.gray.600);
+        --tw-prose-links: theme(colors.black);
+        --tw-prose-bold: theme(colors.black);
+        --tw-prose-counters: theme(colors.gray.500);
+        --tw-prose-bullets: theme(colors.gray.400);
+        --tw-prose-hr: theme(colors.gray.200);
+        --tw-prose-quotes: theme(colors.gray.900);
+        --tw-prose-quote-borders: theme(colors.gray.200);
+        --tw-prose-captions: theme(colors.gray.500);
+        --tw-prose-code: theme(colors.black);
+        --tw-prose-pre-code: theme(colors.gray.200);
+        --tw-prose-pre-bg: theme(colors.gray.800);
+        --tw-prose-th-borders: theme(colors.gray.300);
+        --tw-prose-td-borders: theme(colors.gray.200);
+    }
+    .prose h2, .prose h3 {
+        @apply font-serif;
+    }
+</style>

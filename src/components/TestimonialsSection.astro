@@ -1,0 +1,33 @@
+---
+import { Separator } from "@/components/ui/separator";
+import AnimatedTestimonialCard from './AnimatedTestimonialCard';
+
+const testimonials = [
+  {
+    quote: "Working with them was a transformative experience. Their strategic approach and creative execution are second to none.",
+    name: 'Yemi Rose',
+    title: 'Founder, OfColor'
+  },
+  {
+    quote: "They are true partners. They took the time to understand our vision and brought it to life with incredible skill and passion.",
+    name: 'Jane Doe',
+    title: 'Director, The Art Students League'
+  }
+];
+---
+
+<section class="py-16 md:py-24">
+  <div class="container mx-auto px-4 text-center">
+    <div class="flex items-center justify-center gap-4 mb-12">
+        <Separator className="w-16 bg-gray-300" />
+        <h2 class="text-3xl font-sans font-bold uppercase tracking-wider">Testimonials</h2>
+        <Separator className="w-16 bg-gray-300" />
+    </div>
+
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+      {testimonials.map((testimonial, index) => (
+        <AnimatedTestimonialCard testimonial={testimonial} index={index} client:load />
+      ))}
+    </div>
+  </div>
+</section>

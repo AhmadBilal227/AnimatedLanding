@@ -1,0 +1,61 @@
+---
+import portfolio from '../data/portfolio.json';
+
+const featuredWork = [
+    portfolio.images.find(p => p.id === 1),
+    portfolio.videos.find(p => p.id === 1),
+    portfolio.audio.find(p => p.id === 1),
+    portfolio.images.find(p => p.id === 2),
+].filter(Boolean); // Filter out any undefined items if IDs don't match
+---
+
+<section class="py-16 md:py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-3xl font-sans font-bold uppercase tracking-wider">The Magic</h2>
+            <div class="flex-grow h-px bg-gray-300"></div>
+        </div>
+
+        <!-- Slider main container -->
+        <div class="swiper portfolio-carousel relative">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {featuredWork.map(item => (
+                    <div class="swiper-slide">
+                        <div class="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                            <img src={item.heroImage || item.imageUrl} alt={item.title} class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="mt-4">
+                            <p class="font-sans font-bold text-lg uppercase tracking-wider">{item.title} • {item.category}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev text-brand-purple"></div>
+            <div class="swiper-button-next text-brand-purple"></div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const swiper = new Swiper('.portfolio-carousel', {
+        modules: [Navigation],
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
